@@ -1,0 +1,63 @@
+
+The Telephone Game
+
+Multilingual.
+
+To play:
+
+1) Players enter phrases to begin a translation chain.
+
+2) Players translate phrases from one language to another. 
+As they do, the game tracks the chain of translated phrases.
+Each link connects two different languages.
+
+3) When a link is added to a chain that already contains
+that language, the two phrases in the same language are 
+compared for equivalence. If they are considered equivalent,
+the players who performed the translation in the chain are
+awarded points proportional to the length of the chain and
+the difficulty of the language translations along the path.
+
+Stage 3 seems to be the hardest part of the game design.
+Alternatives:
+
+a) Players are asked to compare phrases on a subjective
+scale: 
+	"equivalent" 
+	"similar" 
+	"not even close"
+A potential problem with this would exist if players 
+intentionally entered bad judgements to disrupt the system.
+
+b) If enough alternate translations existed, players could
+choose the most equivalent phrase out of a set of candidates.
+This would give us a finer way to resolve differences and
+people could be awarded points based on how many others 
+agreed with their judgements.
+
+
+INFORMATION REPRESENTATION
+
+1) Nodes in a graph represent phrases. Each phrase has the following attributes:
+  a) text
+  b) language
+  c) originator
+
+2) Edges in the graph represent relationships between phrases. 
+  a) edges that connect phrases in different languages represent translations.
+     These are directed and are tagged with the translator.
+  b) edges that connect phrases in the same language represent evaluations.
+     These are undirected and are tagged with the evaluator.
+
+
+EVALUATION
+
+1) Nodes in the graph are represented as electrical nodes with computable voltages.
+2) Edges that correspond to translations are represented with resistors.
+3) Edges that correspond to evaluations are represented with current sources.
+Current represents the "difference" in meaning. Similar phrases result in
+low or no current. Dissimilar phrases introduce high current.
+4) Voltage differences across translation resistors indicate the quality of
+the translation. Low differences indicate good translations.
+5) Voltage or power through resistors can be used to eliminate bad translation
+links. This would be analagous to blowing a fuse.

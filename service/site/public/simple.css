@@ -1,0 +1,59 @@
+* {padding:0; margin:0;}
+
+body         {width:58.8em; margin:0 auto; background:#fff; color:#000;}
+body         {font-size:10pt; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;}
+
+#main        {width:34.8em; margin-left:1em; padding-right:3em; float:left; min-height:50em;}
+#sidebar     {width:20em; float:left;}
+#header      {margin:0em auto 0 auto; padding:0.0em 0; border-bottom:0.4em solid #ccc; clear:both;}
+#footer      {width:100%; margin:2em auto 0 auto; padding:0.5em 0; border-top:0.2em solid #ccc; clear:both;}
+
+#nav {width:100%; margin:0 auto 0.5em auto;}
+#nav ul {list-style:none;}
+#nav ul li {font-size:1.4em; float:left;}
+#nav ul li a, 
+#nav ul li a:visited {display:block; padding:0.2em 0.5em 0.2em 0.5em;}
+#nav ul li a:hover {background:#ccc; text-decoration:none;}
+
+#nav:after, 
+#content:after {display:block; height:0; content:""; visibility:hidden; clear:both;}
+
+#main {margin-top:0em;}
+
+#sidebar-box {
+	background-color:#eee;
+	padding-left:0.5em;
+	padding-top:0.1em;
+	padding-bottom:0.5em;
+	margin-top:1.0em;
+}
+
+a         {text-decoration:none; font-weight:bold;}
+a:visited {text-decoration:none; font-weight:bold;}
+a:hover   {text-decoration:underline; font-weight:bold;}
+a img     {border:none;}
+
+h1, h2, h3, h4 {font-weight:bold; }
+
+h1 a         {text-decoration:none; font-weight:bold;}
+h1 a:visited {text-decoration:none; font-weight:bold;}
+h1 a:hover   {text-decoration:underline; font-weight:bold;}
+
+li {list-style-position:inside;}
+
+ul.sidebar_list {list-style:none;}
+ul.sidebar_list li.widget {width:16.6667em; margin:0 0 1.0em 0; font-size:1.2em; line-height:1.6667em; float:left;}
+ul.sidebar_list li.widget p {margin:0 0 1.66667em 0;}
+ul.sidebar_list li.widget ul {list-style:none; margin:0 0 0.8333em 0;}
+ul.sidebar_list li.widget li {padding:0 0 0 1.16667em; background:url('/images/bullet.gif') 0 0.4167em no-repeat;}
+ul.sidebar_list li.widget li a:hover {color:#000; border-bottom:1px solid #000;}
+
+form table {margin-top:1em; font-size:150%;}
+form table tr td {min-width:5em;}
+
+p {margin-top:0.5em; margin-bottom:0.5em; font-size:100%;}
+
+th {text-align:left;}
+td {padding-left:0.5em; padding-right:0.5em;}
+
+
