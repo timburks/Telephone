@@ -500,20 +500,17 @@
      (set language (languages-by-code code))
      (unless language (return ((dict status:400 message:"unknown language code") JSONRepresentation)))
      (set phraseid ((REQUEST bindings) phrase_id:))
-     (puts "ok")
-     (puts phraseid)
-     (oid phraseid)
-     (puts "ok")
      (set phrase (mongo findOne:(dict _id:(oid phraseid)) inCollection:"telephone.phrases"))
-     (puts "ok")
-     
      (unless phrase (return ((dict status:400 message:"unknown phrase") JSONRepresentation)))
-     (puts "ok")
+     
+     ;; make sure we at least have a google translation
+     (set target-text (google-translate (phrase language:) code (phrase text:)))
+     (set target-entry (get-phrase-entry target-text code))
+     (set translation (get-translation-entry phrase target-entry "google"))
+     
+     ;; get all the translations
      (set translations
           (mongo findArray:(dict source_id:(phrase _id:) destination_language:code)
                  inCollection:"telephone.translations"))
      
-     (puts (translations description))
-     
-     ((dict status:200 translations:translations) JSONRepresentation)
-     )
+     ((dict status:200 translations:translations) JSONRepresentation))
