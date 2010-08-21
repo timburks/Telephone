@@ -11,7 +11,6 @@
 (mongo connectWithOptions:nil)
 
 (set args ((NSProcessInfo processInfo) arguments))
-
 (unless (set source-text (args 2))
         (set source-text "hello world"))
 (puts source-text)

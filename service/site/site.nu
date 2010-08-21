@@ -3,7 +3,7 @@
 (load "NuMongoDB")
 (load "NuJSON")
 (load "NuUUID")
-
+(load "google")
 (set SITE "telephone")
 
 (set mongo (NuMongoDB new))
@@ -34,6 +34,10 @@
             (dict name:"Portugese" code:"pt")
             (dict name:"Spanish" code:"es")
             (dict name:"Catalan" code:"ca")))
+
+
+(set languages ((NSString stringWithContentsOfFile:"languages.json") JSONValue))
+
 
 (set languages-by-code (dict))
 (languages each:
@@ -83,12 +87,11 @@
      (&div id:"sidebar"
            (&h1 "Telephone")
            (&p "The world-wide message passing game.")
-           (&p
-              (languages map:
-                   (do (language)
-                       (+ (language name:) " "))
-                   
-                   ))))
+           (&p (languages map:
+                    (do (language)
+                        (&span (&a href:(+ "/" (language code:))
+                                   (language name:))
+                               " "))))))
 
 (function footer ()
      (&div id:"footer"
@@ -106,17 +109,17 @@
 
 (get "/"
      (set account (get-account SITE))
-     (puts (account description))
      (webpage "Telephone"
               (&div id:"main"
                     (if account
                         (then
                              (&div
                                   (&h1 "Choose a language")
-                                  (&ul (languages map:
-                                            (do (language)
-                                                (&li (&a href:(+ "/" (language code:))
-                                                         (language name:))))))))
+                                  (&p (languages map:
+                                           (do (language)
+                                               (&span (&a href:(+ "/" (language code:))
+                                                          (language name:))
+                                                      " "))))))
                         (else
                              (&h1 "Please "
                                   (&a href:"/signin" "sign in")
@@ -134,19 +137,51 @@
      (set code ((REQUEST bindings) code:))
      (set language (languages-by-code code))
      (unless language (return nil))
+     
+     (set phrases (mongo findArray:(dict language:code) inCollection:"telephone.phrases"))
+     
      (webpage "Telephone"
               (&div id:"main"
                     (&h1 (language name:))
-                    (&ul (&li (&a href:(+ "/" code "/translate-in")
-                                  "Translate a phrase into " (language name:)))
-                         (&li (&a href:(+ "/" code "/translate-out")
-                                  "Translate a " (language name:) " phase into another language"))
-                         (&li (&a href:(+ "/" code "/enter")
-                                  "Enter a phrase"))
-                         (&li (&a href:(+ "/" code "/compare")
-                                  "Compare phrases"))))))
+                    (&ul
+                        (if NO (&li (&a href:(+ "/" code "/translate-in")
+                                        "Translate a phrase into " (language name:)))
+                            (&li (&a href:(+ "/" code "/translate-out")
+                                     "Translate a " (language name:) " phase into another language")))
+                        (&li (&a href:(+ "/" code "/add")
+                                 "Add a phrase"))
+                        (&li (&a href:(+ "/" code "/compare")
+                                 "Compare phrases")))
+                    (&p
+                       (phrases map:
+                                (do (phrase)
+                                    (&span style:"padding-right:1em; font-style:italic"
+                                           (&a href:(+ "/" code "/" (phrase _id:))
+                                               (phrase text:)))))))))
 
 (get "/code:/translate-in"
+     (set code ((REQUEST bindings) code:))
+     
+     (set targets
+          (languages select:
+               (do (language)
+                   (!= (language code:) code))))
+     
+     (set source-phrase "Let's get lunch!")
+     
+     (webpage "Translate"
+              (&div id:"main"
+                    (&h1 "Translate this " ((languages-by-code code) name:) " phrase:")
+                    (&p (&em source-phrase))
+                    (&form action:(+ "/" code "/translate") method:"POST"
+                           (&table (&tr (&td "Choose a destination language: "
+                                             (select "language" targets "name" "code" "")))
+                                   (&tr (&td "Enter your translation:"))
+                                   (&tr (&td (&textarea name:"translation" rows:10 cols:80)))
+                                   (&tr (&td (&input type:"submit" value:"submit"))))))))
+
+
+(get "/code:/translate-out"
      (set code ((REQUEST bindings) code:))
      
      (set targets
@@ -173,6 +208,133 @@
                      (&h1 "Thank you!")
                      (&pre ((REQUEST post) description)))))
 
+(get "/code:/add"
+     (set code ((REQUEST bindings) code:))
+     (set language (languages-by-code code))
+     (unless language (return nil))
+     (webpage "Add a phrase"
+              (&div id:"main"
+                    (&h1 (&a href:(+ "/" code) (language name:)))
+                    (&h2 "Add a phrase")
+                    (&form action:(+ "/" code "/add") method:"POST"
+                           (&table (&tr (&td (&textarea name:"text" rows:10 cols:80)))
+                                   (&tr (&td (&input type:"submit" value:"submit"))))))))
+
+(post "/code:/add"
+      (set code ((REQUEST bindings) code:))
+      (set language (languages-by-code code))
+      (unless language (return nil))
+      (set target-entry (get-phrase-entry ((REQUEST post) text:) code))
+      (REQUEST redirectResponseToLocation:(+ "/" code "/" (target-entry _id:))))
+
+(get "/code:/compare"
+     (webpage "Compare phrases"
+              (&div id:"main"
+                    (&h1 "Compare phrases")
+                    (&p "coming soon."))))
+
+(post "/code:/compare"
+      "x")
+
+
+(get "/code:/phrase_id:"
+     (set code ((REQUEST bindings) code:))
+     (set language (languages-by-code code))
+     (set phrase_id ((REQUEST bindings) phrase_id:))
+     (set phrase (mongo findOne:(dict _id:(oid phrase_id)) inCollection:"telephone.phrases"))
+     (unless phrase (return nil))
+     
+     (set translations-from
+          (mongo findArray:(dict destination_id:(oid phrase_id)) inCollection:"telephone.translations"))
+     (set translations-to
+          (mongo findArray:(dict source_id:(oid phrase_id)) inCollection:"telephone.translations"))
+     
+     (set target-languages
+          (languages select:
+               (do (language)
+                   (!= (language code:) code))))
+     
+     (webpage "Phrase"
+              (&div id:"main"
+                    (&h1 (&a href:(+ "/" code) (language name:)))
+                    (&p (phrase text:))
+                    (if (translations-from count)
+                        (&div (&h2 "Translated from")
+                              (&table (translations-from map:
+                                           (do (translation)
+                                               (&tr (&td (&a href:(+ "/" (translation source_language:)
+                                                                     "/" (translation source_id:))
+                                                             ((languages-by-code (translation source_language:)) name:)
+                                                             " "))
+                                                    (&td (&em "by " (translation translator:)))
+                                                    (&td (translation source_text:))))))))
+                    
+                    
+                    (if (translations-to count)
+                        (&div (&h2 "Translated to")
+                              (&table (translations-to map:
+                                           (do (translation)
+                                               (&tr (&td (&a href:(+ "/" (translation destination_language:)
+                                                                     "/" (translation destination_id:))
+                                                             ((languages-by-code (translation destination_language:)) name:)
+                                                             " "))
+                                                    (&td (&em "by " (translation translator:)))
+                                                    (&td (translation destination_text:))))))))
+                    
+                    
+                    (&form action:"/translate" method:"POST"
+                           (&input type:"hidden" name:"phrase_id" value:(phrase _id:))
+                           (&p "Automatically translate to: "
+                               (select "destination_language" target-languages "name" "code" "")
+                               " "
+                               (&input type:"submit" value:"Google Translate")))
+                    
+                    (&hr)
+                    (&form action:"/translate" method:"POST"
+                           (&input type:"hidden" name:"phrase_id" value:(phrase _id:))
+                           (&p "or manually translate to: "
+                               (select "destination_language" target-languages "name" "code" ""))
+                           (&p "Enter your translation below:")
+                           (&p (&textarea name:"destination_text" rows:5 cols:80))
+                           (&p (&input type:"submit" value:"Submit translation"))
+                           ))))
+
+(post "/translate"
+      (set account (get-account SITE))
+      (unless account (return nil))
+      (puts (account description))
+      (set phrase_id ((REQUEST post) phrase_id:))
+      (set destination_language ((REQUEST post) destination_language:))
+      (set destination_text ((REQUEST post) destination_text:))
+      (set phrase (mongo findOne:(dict _id:(oid phrase_id)) inCollection:"telephone.phrases"))
+      (puts (phrase description))
+      (if (eq destination_language "") (return "error: language must be selected"))
+      (if (eq destination_text "") (return "error: text must not be empty"))
+      
+      (if destination_text
+          (then ;; user-submitted translation
+                (set translation ;; do we have an existing translation?
+                     (mongo findOne:(dict source_id:(phrase _id:)
+                                          destination_language:destination_language
+                                          translator:(account username:))
+                            inCollection:"telephone.translations"))
+                (unless translation
+                        (set target-text destination_text)
+                        (set target-entry (get-phrase-entry target-text destination_language))
+                        (set translation (get-translation-entry phrase target-entry (account username:)))))
+          (else ;; google translate
+                (set translation ;; do we have an existing translation?
+                     (mongo findOne:(dict source_id:(phrase _id:)
+                                          destination_language:destination_language
+                                          translator:"google")
+                            inCollection:"telephone.translations"))
+                (unless translation
+                        (set target-text (google-translate (phrase language:) destination_language (phrase text:)))
+                        (set target-entry (get-phrase-entry target-text destination_language))
+                        (set translation (get-translation-entry phrase target-entry "google")))))
+      
+      (REQUEST redirectResponseToLocation:(+ "/" destination_language "/" (translation destination_id:))))
+
 ;; ======= USER SIGNIN SYSTEM ========
 
 (set signin-form
@@ -186,7 +348,7 @@
                                           (&tr (&td (&label for:"password" "Password " style:"margin-right:2em"))
                                                (&td (&input id:"password" type:"password" name:"password" title:"password" value:password width:20)))
                                           (&tr (&td)
-                                               (&td (&button type:"submit" "Sign in")))))))))
+                                               (&td (&button type:"submit" "&nbsp;Sign in&nbsp;")))))))))
 
 (set signup-form
      '(webpage "Sign Up"
@@ -203,7 +365,7 @@
                                          (&td (&input id:"password2" type:"password" name:"password2"
                                                       title:"password"  width:20)))
                                     (&tr (&td)
-                                         (&td (&button type:"submit" "Add user"))))))))
+                                         (&td (&button type:"submit" "&nbsp;Sign up&nbsp;"))))))))
 
 (set PASSWORD_SALT SITE)
 
@@ -312,4 +474,3 @@
                          insertIfNecessary:YES
                          updateMultipleEntries:NO)
                   (REQUEST redirectResponseToLocation:"/"))))
-

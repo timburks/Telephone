@@ -1,0 +1,15 @@
+
+
+GET /languages
+
+returns supported languages and codes
+
+GET /phrase/code: 
+
+returns a phrase to be translated
+
+POST /translation
+
+phrase
+language
+sourcephrase id

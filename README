@@ -49,6 +49,10 @@ INFORMATION REPRESENTATION
   b) edges that connect phrases in the same language represent evaluations.
      These are undirected and are tagged with the evaluator.
 
+ANNOTATIONS
+
+1) Optionally, translations (edges) can be marked with the location where the translation was made.
+2) Optionally, phrases (nodes) can be annotated with audio recordings of the associated phrases.
 
 EVALUATION
 
