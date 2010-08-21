@@ -483,13 +483,37 @@
      (REQUEST setContentType:"application/json")
      (set code ((REQUEST bindings) code:))
      (set language (languages-by-code code))
-     (unless language (return ((dict status:400 message:"unknown language code") JSONRepresentation)))     
-     (set phrases (mongo findArray:(dict language:code) inCollection:"telephone.phrases"))     
+     (unless language (return ((dict status:400 message:"unknown language code") JSONRepresentation)))
+     (set phrases (mongo findArray:(dict language:code) inCollection:"telephone.phrases"))
      (set phrases-result
           (phrases map:
                    (do (phrase)
                        (dict id:((phrase _id:) stringValue)
                              text:(phrase text:)
-                             language:(phrase language:)))))     
+                             language:(phrase language:)))))
      ((dict status:200 phrases:phrases-result) JSONRepresentation))
 
+(get "/api/translate/phrase_id:/code:"
+     (REQUEST setContentType:"application/json")
+     (puts ((REQUEST bindings) description))
+     (set code ((REQUEST bindings) code:))
+     (set language (languages-by-code code))
+     (unless language (return ((dict status:400 message:"unknown language code") JSONRepresentation)))
+     (set phraseid ((REQUEST bindings) phrase_id:))
+     (puts "ok")
+     (puts phraseid)
+     (oid phraseid)
+     (puts "ok")
+     (set phrase (mongo findOne:(dict _id:(oid phraseid)) inCollection:"telephone.phrases"))
+     (puts "ok")
+     
+     (unless phrase (return ((dict status:400 message:"unknown phrase") JSONRepresentation)))
+     (puts "ok")
+     (set translations
+          (mongo findArray:(dict source_id:(phrase _id:) destination_language:code)
+                 inCollection:"telephone.translations"))
+     
+     (puts (translations description))
+     
+     ((dict status:200 translations:translations) JSONRepresentation)
+     )

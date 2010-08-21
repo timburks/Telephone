@@ -7,7 +7,7 @@ sends:
   password_confirmation
 
 returns:
-  {status:200 cookie:COOKIE}
+  {status:200 token:TOKEN}
 or
   {status:400 message:ERROR_MESSAGE}
 
@@ -19,7 +19,7 @@ sends:
   password
 
 returns:
-  {status:200 cookie:COOKIE}
+  {status:200 token:TOKEN}
 or
   {status:400 message:ERROR_MESSAGE}
 
@@ -30,7 +30,7 @@ returns supported languages and codes
   {status:200 languages:[{"name":"Afrikaans","code":"af"},{"name":"Albanian","code":"sq"},..]}
 
 =============================================
-GET /api/phrases/code: 
+GET /api/phrases/en: 
 
 returns one or more phrases to be translated
   {status:200 phrases:[
@@ -43,11 +43,22 @@ or
 =============================================
 POST /api/translate
 
+source-phrase id
 phrase
 language
-source-phrase id
 username
 cookie
 
 returns
   {status:200}
+
+=============================================
+GET /api/translate/phrase:/targetlanguage:
+
+returns translations of phrase into target language
+  {status:200 phrases:[
+	{"text":"translated text", "translator":"google", id:"ABCDEF12346"},
+	{"text":"someone else's translation", "translator:"username", id:"ABCDEF123457""}
+  ]}
+or
+  {status:400 message:"error message"}
