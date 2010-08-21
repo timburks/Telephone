@@ -35,9 +35,7 @@
             (dict name:"Spanish" code:"es")
             (dict name:"Catalan" code:"ca")))
 
-
 (set languages ((NSString stringWithContentsOfFile:"languages.json") JSONValue))
-
 
 (set languages-by-code (dict))
 (languages each:
@@ -479,4 +477,19 @@
 
 (get "/api/languages"
      (REQUEST setContentType:"application/json")
-     (NSString stringWithContentsOfFile:"languages.json"))
+     ((dict status:200 languages:languages) JSONRepresentation))
+
+(get "/api/phrases/code:"
+     (REQUEST setContentType:"application/json")
+     (set code ((REQUEST bindings) code:))
+     (set language (languages-by-code code))
+     (unless language (return ((dict status:400 message:"unknown language code") JSONRepresentation)))     
+     (set phrases (mongo findArray:(dict language:code) inCollection:"telephone.phrases"))     
+     (set phrases-result
+          (phrases map:
+                   (do (phrase)
+                       (dict id:((phrase _id:) stringValue)
+                             text:(phrase text:)
+                             language:(phrase language:)))))     
+     ((dict status:200 phrases:phrases-result) JSONRepresentation))
+
