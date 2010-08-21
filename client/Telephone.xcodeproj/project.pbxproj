@@ -43,6 +43,7 @@
 		223A3B23122071AF0081F1EF /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		223A3B5A1220725A0081F1EF /* APIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIController.h; sourceTree = "<group>"; };
 		223A3B5B1220725A0081F1EF /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIController.m; sourceTree = "<group>"; };
+		223A3B72122074700081F1EF /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* Telephone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telephone_Prefix.pch; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -51,8 +52,8 @@
 		8D1107310486CEB800E47090 /* Telephone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Telephone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C2F61177122043E60003F8A0 /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
 		C2F61178122043E60003F8A0 /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
-		C2F611A4122053AD0003F8A0 /* PhraseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhraseListViewController.h; path = /Users/tim/Desktop/Repositories/Telephone/client/Classes/PhraseListViewController.h; sourceTree = "<absolute>"; };
-		C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhraseListViewController.m; path = /Users/tim/Desktop/Repositories/Telephone/client/Classes/PhraseListViewController.m; sourceTree = "<absolute>"; };
+		C2F611A4122053AD0003F8A0 /* PhraseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhraseListViewController.h; sourceTree = "<group>"; };
+		C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhraseListViewController.m; sourceTree = "<group>"; };
 		C2F611DF12205A760003F8A0 /* LanguageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageListViewController.h; sourceTree = "<group>"; };
 		C2F611E012205A760003F8A0 /* LanguageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +129,7 @@
 			children = (
 				28A0AAE50D9B0CCF005BE974 /* Telephone_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				223A3B72122074700081F1EF /* globals.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";

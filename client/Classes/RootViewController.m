@@ -6,8 +6,10 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "globals.h"
 
+#import "RootViewController.h"
+#import "APIController.h"
 
 @implementation RootViewController
 
@@ -22,38 +24,38 @@
     [super viewDidLoad];
 	
 	self.title = @"Telephone";
-
+	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 /*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
+ - (void)viewWillAppear:(BOOL)animated {
+ [super viewWillAppear:animated];
+ }
+ */
 /*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
+ - (void)viewDidAppear:(BOOL)animated {
+ [super viewDidAppear:animated];
+ }
+ */
 /*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
+ - (void)viewWillDisappear:(BOOL)animated {
+ [super viewWillDisappear:animated];
+ }
+ */
 /*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
+ - (void)viewDidDisappear:(BOOL)animated {
+ [super viewDidDisappear:animated];
+ }
+ */
 
 /*
  // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+ - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+ // Return YES for supported orientations.
+ return (interfaceOrientation == UIInterfaceOrientationPortrait);
+ }
  */
 
 
@@ -83,49 +85,49 @@
     }
     
 	// Configure the cell.
-
+	
     return cell;
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source.
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+ }   
+ }
+ */
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 #pragma mark -
@@ -142,18 +144,25 @@
 	} else if (indexPath.section == 3) {
 		cell.textLabel.text = @"Check a phrase";
 	}
-
+	
 }
 
+static APIController *apiController = nil;
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
 	} else if (indexPath.section == 1) {
-		languageListViewController = [[LanguageListViewController alloc] initWithNibName:@"LanguageListViewController" bundle:nil];
-		// Pass the selected object to the new view controller.
-		languageListViewController.title = @"Select a language";
-		[self.navigationController pushViewController:languageListViewController animated:YES];
-		[languageListViewController release];
+		if (!apiController) {
+			apiController = [[APIController alloc] init];
+		}
+		
+		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
+		NSLog(@"calling %@", path);
+		NSURL *URL = [NSURL URLWithString:path];
+		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
+		[apiController connectWithRequest:request 
+								   target:self 
+								 selector:@selector(processLanguageResults:)];		
 	} else if (indexPath.section == 2) {
 		translateViewController = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
 		// Pass the selected object to the new view controller.
@@ -164,6 +173,25 @@
 	}
 }
 
+- (void) processLanguageResults:(NSString *) resultString {
+	
+	NSLog(@"received results %@", resultString);
+	
+	id results = [resultString JSONValue];
+	NSLog(@"%@", [results description]);
+	
+	NSArray *languages = [results objectForKey:@"languages"];
+	
+	languageListViewController = [[LanguageListViewController alloc] init];
+	// Pass the selected object to the new view controller.
+	languageListViewController.title = @"Select a language";
+	languageListViewController.languages = languages;
+	
+	[self.navigationController pushViewController:languageListViewController animated:YES];
+	[languageListViewController release];
+	
+	
+}
 
 #pragma mark -
 #pragma mark Memory management

@@ -63,7 +63,9 @@
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	if (isRunning) {
 		if (apiStatusCode == 200) {
-			NSString *result = [[[NSString alloc] initWithData:apiData encoding:NSUTF8StringEncoding] autorelease];
+			NSString *result = [[[NSString alloc] initWithData:apiData 
+													  encoding:NSUTF8StringEncoding] 
+								autorelease];
 			[target performSelector:selector withObject:result];
 		} else {
 			[target performSelector:selector withObject:nil];

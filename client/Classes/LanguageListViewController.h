@@ -11,8 +11,10 @@
 
 @interface LanguageListViewController : UITableViewController {
 	PhraseListViewController *phraseListViewController;
+	id languages;
 }
 
 @property (nonatomic, retain) PhraseListViewController *phraseListViewController;
+@property (nonatomic, retain) id languages;
 
 @end

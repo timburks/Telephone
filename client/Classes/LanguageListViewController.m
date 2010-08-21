@@ -12,9 +12,14 @@
 @implementation LanguageListViewController
 
 @synthesize phraseListViewController;
+@synthesize languages;
 
 #pragma mark -
 #pragma mark View lifecycle
+
+- (id) init {
+	return [self initWithNibName:@"LanguageListViewController" bundle:nil];
+}
 
 /*
 - (void)viewDidLoad {
@@ -65,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 20;
+    return [self.languages count];
 }
 
 
@@ -130,6 +135,11 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	
+	int row = [indexPath row];
+	id language = [self.languages objectAtIndex:row];
+	cell.textLabel.text = [language objectForKey:@"name"];
+	
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
