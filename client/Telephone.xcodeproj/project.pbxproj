@@ -11,16 +11,16 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		223A3AAC12206FE40081F1EF /* LanguageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AA712206FE40081F1EF /* LanguageListViewController.xib */; };
+		223A3AAD12206FE40081F1EF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AA812206FE40081F1EF /* MainWindow.xib */; };
+		223A3AAE12206FE40081F1EF /* PhraseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AA912206FE40081F1EF /* PhraseListViewController.xib */; };
+		223A3AAF12206FE40081F1EF /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AAA12206FE40081F1EF /* RootViewController.xib */; };
+		223A3AB012206FE40081F1EF /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AAB12206FE40081F1EF /* TranslateViewController.xib */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
-		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		C2F6117A122043E60003F8A0 /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F61178122043E60003F8A0 /* TranslateViewController.m */; };
-		C2F6117B122043E60003F8A0 /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F61179122043E60003F8A0 /* TranslateViewController.xib */; };
 		C2F611A7122053AD0003F8A0 /* PhraseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */; };
-		C2F611A8122053AD0003F8A0 /* PhraseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F611A6122053AD0003F8A0 /* PhraseListViewController.xib */; };
 		C2F611E212205A760003F8A0 /* LanguageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F611E012205A760003F8A0 /* LanguageListViewController.m */; };
-		C2F611E312205A760003F8A0 /* LanguageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F611E112205A760003F8A0 /* LanguageListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,23 +29,23 @@
 		1D3623250D0F684500981E51 /* TelephoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelephoneAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Telephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		223A3AA712206FE40081F1EF /* LanguageListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageListViewController.xib; sourceTree = "<group>"; };
+		223A3AA812206FE40081F1EF /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		223A3AA912206FE40081F1EF /* PhraseListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhraseListViewController.xib; sourceTree = "<group>"; };
+		223A3AAA12206FE40081F1EF /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		223A3AAB12206FE40081F1EF /* TranslateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* Telephone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telephone_Prefix.pch; sourceTree = "<group>"; };
-		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Telephone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Telephone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		C2F61177122043E60003F8A0 /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TranslateViewController.h; path = Samples/Telephone/Classes/TranslateViewController.h; sourceTree = DEVELOPER_DIR; };
-		C2F61178122043E60003F8A0 /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TranslateViewController.m; path = Samples/Telephone/Classes/TranslateViewController.m; sourceTree = DEVELOPER_DIR; };
-		C2F61179122043E60003F8A0 /* TranslateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TranslateViewController.xib; path = Samples/Telephone/Classes/TranslateViewController.xib; sourceTree = DEVELOPER_DIR; };
-		C2F611A4122053AD0003F8A0 /* PhraseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhraseListViewController.h; path = Samples/Telephone/Classes/PhraseListViewController.h; sourceTree = DEVELOPER_DIR; };
-		C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhraseListViewController.m; path = Samples/Telephone/Classes/PhraseListViewController.m; sourceTree = DEVELOPER_DIR; };
-		C2F611A6122053AD0003F8A0 /* PhraseListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhraseListViewController.xib; path = Samples/Telephone/Classes/PhraseListViewController.xib; sourceTree = DEVELOPER_DIR; };
-		C2F611DF12205A760003F8A0 /* LanguageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageListViewController.h; path = Samples/Telephone/Classes/LanguageListViewController.h; sourceTree = DEVELOPER_DIR; };
-		C2F611E012205A760003F8A0 /* LanguageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageListViewController.m; path = Samples/Telephone/Classes/LanguageListViewController.m; sourceTree = DEVELOPER_DIR; };
-		C2F611E112205A760003F8A0 /* LanguageListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LanguageListViewController.xib; path = Samples/Telephone/Classes/LanguageListViewController.xib; sourceTree = DEVELOPER_DIR; };
+		C2F61177122043E60003F8A0 /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
+		C2F61178122043E60003F8A0 /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
+		C2F611A4122053AD0003F8A0 /* PhraseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhraseListViewController.h; path = /Users/tim/Desktop/Repositories/Telephone/client/Classes/PhraseListViewController.h; sourceTree = "<absolute>"; };
+		C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhraseListViewController.m; path = /Users/tim/Desktop/Repositories/Telephone/client/Classes/PhraseListViewController.m; sourceTree = "<absolute>"; };
+		C2F611DF12205A760003F8A0 /* LanguageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageListViewController.h; sourceTree = "<group>"; };
+		C2F611E012205A760003F8A0 /* LanguageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +90,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8D1107310486CEB800E47090 /* Telephone-Info.plist */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -111,14 +112,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2F611E112205A760003F8A0 /* LanguageListViewController.xib */,
-				C2F611A6122053AD0003F8A0 /* PhraseListViewController.xib */,
-				C2F61179122043E60003F8A0 /* TranslateViewController.xib */,
-				28F335F01007B36200424DE2 /* RootViewController.xib */,
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* Telephone-Info.plist */,
+				223A3AA712206FE40081F1EF /* LanguageListViewController.xib */,
+				223A3AA812206FE40081F1EF /* MainWindow.xib */,
+				223A3AA912206FE40081F1EF /* PhraseListViewController.xib */,
+				223A3AAA12206FE40081F1EF /* RootViewController.xib */,
+				223A3AAB12206FE40081F1EF /* TranslateViewController.xib */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -180,11 +180,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
-				C2F6117B122043E60003F8A0 /* TranslateViewController.xib in Resources */,
-				C2F611A8122053AD0003F8A0 /* PhraseListViewController.xib in Resources */,
-				C2F611E312205A760003F8A0 /* LanguageListViewController.xib in Resources */,
+				223A3AAC12206FE40081F1EF /* LanguageListViewController.xib in Resources */,
+				223A3AAD12206FE40081F1EF /* MainWindow.xib in Resources */,
+				223A3AAE12206FE40081F1EF /* PhraseListViewController.xib in Resources */,
+				223A3AAF12206FE40081F1EF /* RootViewController.xib in Resources */,
+				223A3AB012206FE40081F1EF /* TranslateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
