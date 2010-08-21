@@ -333,7 +333,7 @@
                         (set target-entry (get-phrase-entry target-text destination_language))
                         (set translation (get-translation-entry phrase target-entry "google")))))
       
-      (REQUEST redirectResponseToLocation:(+ "/" destination_language "/" (translation destination_id:))))
+      (REQUEST redirectResponseToLocation:(+ "/" (phrase language:) "/" (phrase _id:))))
 
 ;; ======= USER SIGNIN SYSTEM ========
 
@@ -474,3 +474,9 @@
                          insertIfNecessary:YES
                          updateMultipleEntries:NO)
                   (REQUEST redirectResponseToLocation:"/"))))
+
+;;;; API
+
+(get "/api/languages"
+     (REQUEST setContentType:"application/json")
+     (NSString stringWithContentsOfFile:"languages.json"))

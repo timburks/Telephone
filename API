@@ -1,15 +1,53 @@
+=============================================
+POST /api/signup
 
+sends:
+  username
+  password
+  password_confirmation
 
-GET /languages
+returns:
+  {status:200 cookie:COOKIE}
+or
+  {status:400 message:ERROR_MESSAGE}
+
+=============================================
+POST /api/signin
+
+sends:
+  username
+  password
+
+returns:
+  {status:200 cookie:COOKIE}
+or
+  {status:400 message:ERROR_MESSAGE}
+
+=============================================
+GET /api/languages
 
 returns supported languages and codes
+  {status:200 languages:[{"name":"Afrikaans","code":"af"},{"name":"Albanian","code":"sq"},..]}
 
-GET /phrase/code: 
+=============================================
+GET /api/phrases/code: 
 
-returns a phrase to be translated
+returns one or more phrases to be translated
+  {status:200 phrases:[
+    {"language":"en","text":"Hello, world","id":"ABCDEF123456"},
+    {"language":"en","text":"Translate me","id":"ABCDEF123457"}
+  ]}
+or
+  {status:400 message:"unknown language code"}
 
-POST /translation
+=============================================
+POST /api/translate
 
 phrase
 language
-sourcephrase id
+source-phrase id
+username
+cookie
+
+returns
+  {status:200}
