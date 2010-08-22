@@ -514,3 +514,31 @@
                  inCollection:"telephone.translations"))
      
      ((dict status:200 translations:translations google:translation) JSONRepresentation))
+
+(post "/api/translate/phrase_id:/code:"
+      (set phrase_id ((REQUEST bindings) phrase_id:))
+      (set destination_language ((REQUEST bindings) code:))
+      (set destination_text ((REQUEST post) text:))
+      
+      (set language (languages-by-code destination_language))
+      (set phrase (mongo findOne:(dict _id:(oid phrase_id)) inCollection:"telephone.phrases"))
+      
+      (set username "iPhone")
+      
+      (unless phrase
+              (return (dict status:400 message:"unknown phrase")))
+      (unless language
+              (return (dict status:400 message:"unknown language")))
+      (unless (eq destination_text "")
+              (return (dict status:400 message:"error: text must not be empty")))
+      
+      (set translation ;; do we have an existing translation?
+           (mongo findOne:(dict source_id:(phrase _id:)
+                                destination_language:destination_language
+                                translator:username)
+                  inCollection:"telephone.translations"))
+      
+      (unless translation
+              (set target-text destination_text)
+              (set target-entry (get-phrase-entry target-text destination_language))
+              (set translation (get-translation-entry phrase target-entry username))))
