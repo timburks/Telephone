@@ -516,6 +516,7 @@
      ((dict status:200 translations:translations google:translation) JSONRepresentation))
 
 (post "/api/translate/phrase_id:/code:"
+      (REQUEST setContentType:"application/json")
       (set phrase_id ((REQUEST bindings) phrase_id:))
       (set destination_language ((REQUEST bindings) code:))
       (set destination_text ((REQUEST post) text:))
@@ -542,7 +543,14 @@
               (set target-text destination_text)
               (set target-entry (get-phrase-entry target-text destination_language))
               (set translation (get-translation-entry phrase target-entry username)))
-
+      
       ((dict status:200 translation:translation) JSONRepresentation))
 
-
+(post "/api/addphrase/code:"
+      (REQUEST setContentType:"application/json")
+      (set code ((REQUEST bindings) code:))
+      (set language (languages-by-code code))
+      (unless language
+              (return ((dict status:400 message:"unknown language") JSONRepresentation)))
+      (set target-entry (get-phrase-entry ((REQUEST post) text:) code))
+      ((dict status:200 phrase:target-entry) JSONRepresentation))
