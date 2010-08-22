@@ -189,8 +189,6 @@ static APIController *apiController = nil;
 	
 	[self.navigationController pushViewController:languageListViewController animated:YES];
 	[languageListViewController release];
-	
-	
 }
 
 #pragma mark -
