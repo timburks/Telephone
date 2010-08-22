@@ -150,11 +150,12 @@
 static APIController *apiController = nil;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (!apiController) {
+		apiController = [[APIController alloc] init];
+	}
+
     if (indexPath.section == 0) {
 	} else if (indexPath.section == 1) {
-		if (!apiController) {
-			apiController = [[APIController alloc] init];
-		}
 		
 		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
 		NSLog(@"calling %@", path);
@@ -164,11 +165,14 @@ static APIController *apiController = nil;
 								   target:self 
 								 selector:@selector(processLanguageResults:)];		
 	} else if (indexPath.section == 2) {
-		translateViewController = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
-		// Pass the selected object to the new view controller.
-		translateViewController.title = @"Enter a phrase";
-		[self.navigationController pushViewController:translateViewController animated:YES];
-		[translateViewController release];
+		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
+		NSLog(@"calling %@", path);
+		NSURL *URL = [NSURL URLWithString:path];
+		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
+		[apiController connectWithRequest:request 
+								   target:self 
+								 selector:@selector(processTranslateResults:)];		
+
 	} else if (indexPath.section == 3) {
 	}
 }
@@ -189,6 +193,24 @@ static APIController *apiController = nil;
 	
 	[self.navigationController pushViewController:languageListViewController animated:YES];
 	[languageListViewController release];
+}
+
+- (void) processTranslateResults:(NSString *) resultString {
+	
+	NSLog(@"received results %@", resultString);
+	
+	id results = [resultString JSONValue];
+	NSLog(@"%@", [results description]);
+	
+	NSArray *languages = [results objectForKey:@"languages"];
+	
+	createPhraseViewController = [[CreatePhraseViewController alloc] init];
+	// Pass the selected object to the new view controller.
+	createPhraseViewController.title = @"Create a phrase";
+	createPhraseViewController.languages = languages;
+	
+	[self.navigationController pushViewController:createPhraseViewController animated:YES];
+	[createPhraseViewController release];
 }
 
 #pragma mark -

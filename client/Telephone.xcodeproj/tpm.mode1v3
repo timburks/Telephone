@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -266,16 +264,16 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
-								<string>223A3B19122071760081F1EF</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>26</integer>
-									<integer>21</integer>
+									<integer>15</integer>
+									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -310,12 +308,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TranslateViewController.m</string>
+								<string>CreatePhraseViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,11 +323,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TranslateViewController.m</string>
+										<string>CreatePhraseViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C24F46561220DAD800E988E1</string>
+										<string>C24F46911220E85900E988E1</string>
 										<key>history</key>
 										<array>
 											<string>C2356CCB122081E700C21C50</string>
@@ -341,12 +341,14 @@
 											<string>C2356E431220B8E900C21C50</string>
 											<string>C2356E761220CC2500C21C50</string>
 											<string>C2356E941220CFDE00C21C50</string>
-											<string>C2356E971220CFDE00C21C50</string>
-											<string>C2356E981220CFDE00C21C50</string>
-											<string>C2356E991220CFDE00C21C50</string>
 											<string>C24F46541220DAD800E988E1</string>
-											<string>C24F46551220DAD800E988E1</string>
-											<string>C2356E961220CFDE00C21C50</string>
+											<string>C24F465B1220E05100E988E1</string>
+											<string>C24F46781220E43200E988E1</string>
+											<string>C24F46791220E43200E988E1</string>
+											<string>C24F46811220E4D900E988E1</string>
+											<string>C24F46881220E6A400E988E1</string>
+											<string>C24F46891220E6A400E988E1</string>
+											<string>C24F468A1220E6A400E988E1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -546,9 +548,9 @@
 	<array>
 		<string>C24F46451220D36800E988E1</string>
 		<string>C24F46461220D36800E988E1</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>C2F6114312203F670003F8A0</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/tpm/Desktop/Repository/Telephone/client/Telephone.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -568,12 +570,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>CreatePhraseViewController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -931,7 +935,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
