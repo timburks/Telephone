@@ -11,21 +11,22 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		223A3AAC12206FE40081F1EF /* LanguageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AA712206FE40081F1EF /* LanguageListViewController.xib */; };
-		223A3AAD12206FE40081F1EF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AA812206FE40081F1EF /* MainWindow.xib */; };
-		223A3AAE12206FE40081F1EF /* PhraseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AA912206FE40081F1EF /* PhraseListViewController.xib */; };
-		223A3AAF12206FE40081F1EF /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AAA12206FE40081F1EF /* RootViewController.xib */; };
-		223A3AB012206FE40081F1EF /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223A3AAB12206FE40081F1EF /* TranslateViewController.xib */; };
 		223A3B24122071AF0081F1EF /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A3B20122071AF0081F1EF /* JSON.m */; };
 		223A3B25122071AF0081F1EF /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A3B22122071AF0081F1EF /* Helpers.m */; };
 		223A3B5C1220725A0081F1EF /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A3B5B1220725A0081F1EF /* APIController.m */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		C24F46661220E14300E988E1 /* CreatePhraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24F46641220E14300E988E1 /* CreatePhraseViewController.m */; };
-		C24F46671220E14300E988E1 /* CreatePhraseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24F46651220E14300E988E1 /* CreatePhraseViewController.xib */; };
 		C2F6117A122043E60003F8A0 /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F61178122043E60003F8A0 /* TranslateViewController.m */; };
 		C2F611A7122053AD0003F8A0 /* PhraseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */; };
 		C2F611E212205A760003F8A0 /* LanguageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F611E012205A760003F8A0 /* LanguageListViewController.m */; };
+		D8CDD7E61220FF5B0045A5DF /* LanguageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD7E51220FF5B0045A5DF /* LanguageListViewController.xib */; };
+		D8CDD7F7122100190045A5DF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD7F6122100190045A5DF /* MainWindow.xib */; };
+		D8CDD801122100510045A5DF /* PhraseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD800122100510045A5DF /* PhraseListViewController.xib */; };
+		D8CDD80B122100850045A5DF /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD80A122100850045A5DF /* RootViewController.xib */; };
+		D8CDD815122100B40045A5DF /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD814122100B40045A5DF /* TranslateViewController.xib */; };
+		D8CDD81F122100E80045A5DF /* CreatePhraseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD81E122100E80045A5DF /* CreatePhraseViewController.xib */; };
+		D8CDD82B122101500045A5DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8CDD82A122101500045A5DF /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,11 +35,11 @@
 		1D3623250D0F684500981E51 /* TelephoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelephoneAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Telephone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telephone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		223A3AA712206FE40081F1EF /* LanguageListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageListViewController.xib; sourceTree = "<group>"; };
-		223A3AA812206FE40081F1EF /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		223A3AA912206FE40081F1EF /* PhraseListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhraseListViewController.xib; sourceTree = "<group>"; };
-		223A3AAA12206FE40081F1EF /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		223A3AAB12206FE40081F1EF /* TranslateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
+		223A3AA712206FE40081F1EF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		223A3AA812206FE40081F1EF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		223A3AA912206FE40081F1EF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		223A3AAA12206FE40081F1EF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		223A3AAB12206FE40081F1EF /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
 		223A3B20122071AF0081F1EF /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
 		223A3B21122071AF0081F1EF /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		223A3B22122071AF0081F1EF /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
@@ -54,13 +55,70 @@
 		8D1107310486CEB800E47090 /* Telephone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Telephone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C24F46631220E14300E988E1 /* CreatePhraseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePhraseViewController.h; sourceTree = "<group>"; };
 		C24F46641220E14300E988E1 /* CreatePhraseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePhraseViewController.m; sourceTree = "<group>"; };
-		C24F46651220E14300E988E1 /* CreatePhraseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreatePhraseViewController.xib; path = ../Classes/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		C24F46651220E14300E988E1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = ../Classes/English.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
 		C2F61177122043E60003F8A0 /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
 		C2F61178122043E60003F8A0 /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
 		C2F611A4122053AD0003F8A0 /* PhraseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhraseListViewController.h; sourceTree = "<group>"; };
 		C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhraseListViewController.m; sourceTree = "<group>"; };
 		C2F611DF12205A760003F8A0 /* LanguageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageListViewController.h; sourceTree = "<group>"; };
 		C2F611E012205A760003F8A0 /* LanguageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageListViewController.m; sourceTree = "<group>"; };
+		D8CDD7E71220FF660045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7E81220FF6F0045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7E91220FF730045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7EA1220FF7A0045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7EB1220FF800045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7EC1220FF8F0045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7ED1220FF980045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7F51221000B0045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_hans; path = zh_hans.lproj/LanguageListViewController.xib; sourceTree = "<group>"; };
+		D8CDD7F8122100240045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7F9122100270045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7FA1221002C0045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7FB122100320045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7FC122100370045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7FD1221003B0045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7FE122100400045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD7FF122100470045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_hans; path = zh_hans.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D8CDD802122100580045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD8031221005C0045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD804122100610045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD805122100660045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD8061221006B0045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD8071221006F0045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD808122100720045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD809122100790045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_hans; path = zh_hans.lproj/PhraseListViewController.xib; sourceTree = "<group>"; };
+		D8CDD80C1221008C0045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD80D1221008F0045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD80E122100920045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD80F122100960045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD8101221009B0045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD8111221009F0045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD812122100A30045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD813122100AA0045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_hans; path = zh_hans.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		D8CDD816122100BD0045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD817122100C10045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD818122100C60045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD819122100CD0045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD81A122100D10045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD81B122100D50045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD81C122100D90045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD81D122100DF0045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_hans; path = zh_hans.lproj/TranslateViewController.xib; sourceTree = "<group>"; };
+		D8CDD820122100EE0045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = ../Classes/de.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD821122100F10045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = ../Classes/es.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD822122100F40045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = ../Classes/fr.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD823122100F90045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ../Classes/ja.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD824122100FD0045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ../Classes/ko.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD825122101020045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = ../Classes/nl.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD826122101050045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = ../Classes/sv.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD8271221010D0045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = zh_hans; path = ../Classes/zh_hans.lproj/CreatePhraseViewController.xib; sourceTree = "<group>"; };
+		D8CDD828122101430045A5DF /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD82C122101570045A5DF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD82D1221015E0045A5DF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD82E122101620045A5DF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD82F122101660045A5DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD8301221016A0045A5DF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD8311221016F0045A5DF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD832122101750045A5DF /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D8CDD833122101BE0045A5DF /* zh_hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh_hans; path = zh_hans.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,12 +202,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				223A3AA712206FE40081F1EF /* LanguageListViewController.xib */,
-				223A3AA812206FE40081F1EF /* MainWindow.xib */,
-				223A3AA912206FE40081F1EF /* PhraseListViewController.xib */,
-				223A3AAA12206FE40081F1EF /* RootViewController.xib */,
-				223A3AAB12206FE40081F1EF /* TranslateViewController.xib */,
-				C24F46651220E14300E988E1 /* CreatePhraseViewController.xib */,
+				D8CDD7E51220FF5B0045A5DF /* LanguageListViewController.xib */,
+				D8CDD7F6122100190045A5DF /* MainWindow.xib */,
+				D8CDD800122100510045A5DF /* PhraseListViewController.xib */,
+				D8CDD80A122100850045A5DF /* RootViewController.xib */,
+				D8CDD814122100B40045A5DF /* TranslateViewController.xib */,
+				D8CDD81E122100E80045A5DF /* CreatePhraseViewController.xib */,
+				D8CDD82A122101500045A5DF /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -198,6 +257,14 @@
 				French,
 				German,
 				en,
+				de,
+				es,
+				fr,
+				ja,
+				ko,
+				nl,
+				sv,
+				zh_hans,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -213,12 +280,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				223A3AAC12206FE40081F1EF /* LanguageListViewController.xib in Resources */,
-				223A3AAD12206FE40081F1EF /* MainWindow.xib in Resources */,
-				223A3AAE12206FE40081F1EF /* PhraseListViewController.xib in Resources */,
-				223A3AAF12206FE40081F1EF /* RootViewController.xib in Resources */,
-				223A3AB012206FE40081F1EF /* TranslateViewController.xib in Resources */,
-				C24F46671220E14300E988E1 /* CreatePhraseViewController.xib in Resources */,
+				D8CDD7E61220FF5B0045A5DF /* LanguageListViewController.xib in Resources */,
+				D8CDD7F7122100190045A5DF /* MainWindow.xib in Resources */,
+				D8CDD801122100510045A5DF /* PhraseListViewController.xib in Resources */,
+				D8CDD80B122100850045A5DF /* RootViewController.xib in Resources */,
+				D8CDD815122100B40045A5DF /* TranslateViewController.xib in Resources */,
+				D8CDD81F122100E80045A5DF /* CreatePhraseViewController.xib in Resources */,
+				D8CDD82B122101500045A5DF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +311,121 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D8CDD7E51220FF5B0045A5DF /* LanguageListViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223A3AA712206FE40081F1EF /* English */,
+				D8CDD7E71220FF660045A5DF /* de */,
+				D8CDD7E81220FF6F0045A5DF /* es */,
+				D8CDD7E91220FF730045A5DF /* fr */,
+				D8CDD7EA1220FF7A0045A5DF /* ja */,
+				D8CDD7EB1220FF800045A5DF /* ko */,
+				D8CDD7EC1220FF8F0045A5DF /* nl */,
+				D8CDD7ED1220FF980045A5DF /* sv */,
+				D8CDD7F51221000B0045A5DF /* zh_hans */,
+			);
+			name = LanguageListViewController.xib;
+			sourceTree = "<group>";
+		};
+		D8CDD7F6122100190045A5DF /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223A3AA812206FE40081F1EF /* English */,
+				D8CDD7F8122100240045A5DF /* de */,
+				D8CDD7F9122100270045A5DF /* es */,
+				D8CDD7FA1221002C0045A5DF /* fr */,
+				D8CDD7FB122100320045A5DF /* ja */,
+				D8CDD7FC122100370045A5DF /* ko */,
+				D8CDD7FD1221003B0045A5DF /* nl */,
+				D8CDD7FE122100400045A5DF /* sv */,
+				D8CDD7FF122100470045A5DF /* zh_hans */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D8CDD800122100510045A5DF /* PhraseListViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223A3AA912206FE40081F1EF /* English */,
+				D8CDD802122100580045A5DF /* de */,
+				D8CDD8031221005C0045A5DF /* es */,
+				D8CDD804122100610045A5DF /* fr */,
+				D8CDD805122100660045A5DF /* ja */,
+				D8CDD8061221006B0045A5DF /* ko */,
+				D8CDD8071221006F0045A5DF /* nl */,
+				D8CDD808122100720045A5DF /* sv */,
+				D8CDD809122100790045A5DF /* zh_hans */,
+			);
+			name = PhraseListViewController.xib;
+			sourceTree = "<group>";
+		};
+		D8CDD80A122100850045A5DF /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223A3AAA12206FE40081F1EF /* English */,
+				D8CDD80C1221008C0045A5DF /* de */,
+				D8CDD80D1221008F0045A5DF /* es */,
+				D8CDD80E122100920045A5DF /* fr */,
+				D8CDD80F122100960045A5DF /* ja */,
+				D8CDD8101221009B0045A5DF /* ko */,
+				D8CDD8111221009F0045A5DF /* nl */,
+				D8CDD812122100A30045A5DF /* sv */,
+				D8CDD813122100AA0045A5DF /* zh_hans */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		D8CDD814122100B40045A5DF /* TranslateViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				223A3AAB12206FE40081F1EF /* English */,
+				D8CDD816122100BD0045A5DF /* de */,
+				D8CDD817122100C10045A5DF /* es */,
+				D8CDD818122100C60045A5DF /* fr */,
+				D8CDD819122100CD0045A5DF /* ja */,
+				D8CDD81A122100D10045A5DF /* ko */,
+				D8CDD81B122100D50045A5DF /* nl */,
+				D8CDD81C122100D90045A5DF /* sv */,
+				D8CDD81D122100DF0045A5DF /* zh_hans */,
+			);
+			name = TranslateViewController.xib;
+			sourceTree = "<group>";
+		};
+		D8CDD81E122100E80045A5DF /* CreatePhraseViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C24F46651220E14300E988E1 /* English */,
+				D8CDD820122100EE0045A5DF /* de */,
+				D8CDD821122100F10045A5DF /* es */,
+				D8CDD822122100F40045A5DF /* fr */,
+				D8CDD823122100F90045A5DF /* ja */,
+				D8CDD824122100FD0045A5DF /* ko */,
+				D8CDD825122101020045A5DF /* nl */,
+				D8CDD826122101050045A5DF /* sv */,
+				D8CDD8271221010D0045A5DF /* zh_hans */,
+			);
+			name = CreatePhraseViewController.xib;
+			sourceTree = "<group>";
+		};
+		D8CDD82A122101500045A5DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8CDD828122101430045A5DF /* English */,
+				D8CDD82C122101570045A5DF /* de */,
+				D8CDD82D1221015E0045A5DF /* es */,
+				D8CDD82E122101620045A5DF /* fr */,
+				D8CDD82F122101660045A5DF /* ja */,
+				D8CDD8301221016A0045A5DF /* ko */,
+				D8CDD8311221016F0045A5DF /* nl */,
+				D8CDD832122101750045A5DF /* sv */,
+				D8CDD833122101BE0045A5DF /* zh_hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
