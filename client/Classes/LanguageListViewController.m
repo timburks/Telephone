@@ -6,13 +6,14 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "globals.h"
 #import "LanguageListViewController.h"
-
 
 @implementation LanguageListViewController
 
 @synthesize phraseListViewController;
 @synthesize languages;
+@synthesize apiController;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -139,19 +140,46 @@
 	int row = [indexPath row];
 	id language = [self.languages objectAtIndex:row];
 	cell.textLabel.text = [language objectForKey:@"name"];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {	
+	int row = [indexPath row];
+	id language = [self.languages objectAtIndex:row];
+
+	if (!apiController) {
+		apiController = [[APIController alloc] init];
+	}
+	
+	NSString *path = [NSString stringWithFormat:@"%@/api/phrases/%@", SERVER, [language objectForKey:@"code"]];
+	NSLog(@"calling %@", path);
+	NSURL *URL = [NSURL URLWithString:path];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
+	[apiController connectWithRequest:request 
+							   target:self 
+							 selector:@selector(processPhraseResults:)];		
 	
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
+- (void) processPhraseResults:(NSString *) resultString {
 	
-	 phraseListViewController = [[PhraseListViewController alloc] initWithNibName:@"PhraseListViewController" bundle:nil];
-	 phraseListViewController.title = @"Select a phrase";
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:phraseListViewController animated:YES];
-	 [phraseListViewController release];
-}
+	NSLog(@"received results %@", resultString);
+	
+	id results = [resultString JSONValue];
+	NSLog(@"%@", [results description]);
+	
+	NSArray *phrases = [results objectForKey:@"phrases"];
+	
+	phraseListViewController = [[PhraseListViewController alloc] initWithNibName:@"PhraseListViewController" bundle:nil];
+	phraseListViewController.title = @"Select a phrase";
+	
+	// Pass the phrases in and the list of languages
+	phraseListViewController.phrases = phrases;
+	phraseListViewController.languages = self.languages;
 
+	// Pass the selected object to the new view controller
+	[self.navigationController pushViewController:phraseListViewController animated:YES];
+	[phraseListViewController release];
+}
 
 #pragma mark -
 #pragma mark Memory management

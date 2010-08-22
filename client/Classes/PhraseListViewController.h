@@ -11,8 +11,12 @@
 
 @interface PhraseListViewController : UITableViewController {
 	TranslateViewController *translateViewController;
+	id phrases;
+	id languages;
 }
 
 @property (nonatomic, retain) TranslateViewController *translateViewController;
+@property (nonatomic, retain) id phrases;
+@property (nonatomic, retain) id languages;
 
 @end
