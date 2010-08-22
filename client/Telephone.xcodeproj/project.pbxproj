@@ -21,6 +21,8 @@
 		223A3B5C1220725A0081F1EF /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223A3B5B1220725A0081F1EF /* APIController.m */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		C24F46661220E14300E988E1 /* CreatePhraseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24F46641220E14300E988E1 /* CreatePhraseViewController.m */; };
+		C24F46671220E14300E988E1 /* CreatePhraseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24F46651220E14300E988E1 /* CreatePhraseViewController.xib */; };
 		C2F6117A122043E60003F8A0 /* TranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F61178122043E60003F8A0 /* TranslateViewController.m */; };
 		C2F611A7122053AD0003F8A0 /* PhraseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */; };
 		C2F611E212205A760003F8A0 /* LanguageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F611E012205A760003F8A0 /* LanguageListViewController.m */; };
@@ -50,6 +52,9 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Telephone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Telephone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C24F46631220E14300E988E1 /* CreatePhraseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePhraseViewController.h; sourceTree = "<group>"; };
+		C24F46641220E14300E988E1 /* CreatePhraseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePhraseViewController.m; sourceTree = "<group>"; };
+		C24F46651220E14300E988E1 /* CreatePhraseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreatePhraseViewController.xib; path = ../Classes/CreatePhraseViewController.xib; sourceTree = "<group>"; };
 		C2F61177122043E60003F8A0 /* TranslateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateViewController.h; sourceTree = "<group>"; };
 		C2F61178122043E60003F8A0 /* TranslateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateViewController.m; sourceTree = "<group>"; };
 		C2F611A4122053AD0003F8A0 /* PhraseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhraseListViewController.h; sourceTree = "<group>"; };
@@ -85,6 +90,8 @@
 				C2F611A5122053AD0003F8A0 /* PhraseListViewController.m */,
 				C2F61177122043E60003F8A0 /* TranslateViewController.h */,
 				C2F61178122043E60003F8A0 /* TranslateViewController.m */,
+				C24F46631220E14300E988E1 /* CreatePhraseViewController.h */,
+				C24F46641220E14300E988E1 /* CreatePhraseViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 				223A3AA912206FE40081F1EF /* PhraseListViewController.xib */,
 				223A3AAA12206FE40081F1EF /* RootViewController.xib */,
 				223A3AAB12206FE40081F1EF /* TranslateViewController.xib */,
+				C24F46651220E14300E988E1 /* CreatePhraseViewController.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 				223A3AAE12206FE40081F1EF /* PhraseListViewController.xib in Resources */,
 				223A3AAF12206FE40081F1EF /* RootViewController.xib in Resources */,
 				223A3AB012206FE40081F1EF /* TranslateViewController.xib in Resources */,
+				C24F46671220E14300E988E1 /* CreatePhraseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +238,7 @@
 				223A3B24122071AF0081F1EF /* JSON.m in Sources */,
 				223A3B25122071AF0081F1EF /* Helpers.m in Sources */,
 				223A3B5C1220725A0081F1EF /* APIController.m in Sources */,
+				C24F46661220E14300E988E1 /* CreatePhraseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
