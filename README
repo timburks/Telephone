@@ -3,6 +3,20 @@ The Telephone Game
 
 Multilingual.
 
+iOSDevCamp 2010 Hackathon Entry
+
+Tim Burks (tim at radtastical dot com)
+Brendan Clavin (bclavin at tethras dot com)
+Tim Miller (timothypmiller at gmail dot com)
+
+We’ve rebuit the "Telephone Game". Ironically, you now play this game on your phone. Your message will travel around the world rather than around the table. Create a phrase, pass it up to the server, and someone will translate it into another language. The next person who takes the message will further translate it into another language. Eventually it comes back to you in your original language. And at any time, in any language, participants can ask Google to do the translation.
+
+Making extensive use of an Objective-C based server with traffic going through Google’s Translate API, this game is ready to scale and become the answer to the "Tower of Babel".
+
+The client is a native iPhone app that was human translated into 10 languages between the hours of 1:00 and 3:00 a.m. today using translation services by Tethras.
+
+What language do you speak? Give it a try.
+
 To play:
 
 1) Players enter phrases to begin a translation chain.
@@ -11,14 +25,40 @@ To play:
 As they do, the game tracks the chain of translated phrases.
 Each link connects two different languages.
 
-3) When a link is added to a chain that already contains
+3) Translation activity can be viewed in an iPhone app or on the web.
+The web interface shows the longest translated path through each phrase.
+
+INFORMATION REPRESENTATION
+
+1) Nodes in a graph represent phrases. Each phrase has the following attributes:
+  a) text
+  b) language
+  c) originator
+
+2) Edges in the graph represent relationships between phrases. 
+  a) edges that connect phrases in different languages represent translations.
+     These are directed and are tagged with the translator.
+  b) edges that connect phrases in the same language represent evaluations.
+     These are undirected and are tagged with the evaluator.
+
+DATA STORAGE
+
+Data is stored in a MongoDB database on the networked Mac OS machine that runs our web server.
+
+
+===================================================================
+FUTURE: WHAT ELSE COULD WE HAVE DONE? 
+
+GAMEPLAY ADDITIONS:
+
+When a link is added to a chain that already contains
 that language, the two phrases in the same language are 
 compared for equivalence. If they are considered equivalent,
 the players who performed the translation in the chain are
 awarded points proportional to the length of the chain and
 the difficulty of the language translations along the path.
 
-Stage 3 seems to be the hardest part of the game design.
+This stage seems to be the hardest part of the game design.
 Alternatives:
 
 a) Players are asked to compare phrases on a subjective
@@ -35,27 +75,14 @@ This would give us a finer way to resolve differences and
 people could be awarded points based on how many others 
 agreed with their judgements.
 
-
-INFORMATION REPRESENTATION
-
-1) Nodes in a graph represent phrases. Each phrase has the following attributes:
-  a) text
-  b) language
-  c) originator
-
-2) Edges in the graph represent relationships between phrases. 
-  a) edges that connect phrases in different languages represent translations.
-     These are directed and are tagged with the translator.
-  b) edges that connect phrases in the same language represent evaluations.
-     These are undirected and are tagged with the evaluator.
-
-ANNOTATIONS
+ADDITIONAL ANNOTATIONS 
 
 1) Optionally, translations (edges) can be marked with the location where the translation was made.
 2) Optionally, phrases (nodes) can be annotated with audio recordings of the associated phrases.
 
-EVALUATION
+EVALUATING TRANSLATIONS
 
+We have this crazy idea for scoring links:
 1) Nodes in the graph are represented as electrical nodes with computable voltages.
 2) Edges that correspond to translations are represented with resistors.
 3) Edges that correspond to evaluations are represented with current sources.
@@ -65,3 +92,5 @@ low or no current. Dissimilar phrases introduce high current.
 the translation. Low differences indicate good translations.
 5) Voltage or power through resistors can be used to eliminate bad translation
 links. This would be analagous to blowing a fuse.
+
+Thanks for iOSDevCamp!
