@@ -297,6 +297,15 @@
                            (&p (&input type:"submit" value:"Submit translation"))
                            ))))
 
+(get "/delete/phrase_id:"
+     (set account (get-account SITE))
+     (unless (and account (eq (account username:) "admin")) (return nil))
+     (set phrase_id ((REQUEST bindings) phrase_id:))
+     (mongo removeWithCondition:(dict destination_id:(oid phrase_id)) inCollection:"telephone.translations")
+     (mongo removeWithCondition:(dict source_id:(oid phrase_id)) inCollection:"telephone.translations")
+     (mongo removeWithCondition:(dict _id:(oid phrase_id)) fromCollection:"telephone.phrases")
+     (REQUEST redirectResponseToLocation:"/"))
+
 (post "/translate"
       (set account (get-account SITE))
       (unless account (return nil))
