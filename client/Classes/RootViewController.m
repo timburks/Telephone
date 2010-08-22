@@ -149,15 +149,23 @@
 
 static APIController *apiController = nil;
 
+- (NSString *) preferredLanguageCode {
+	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+	NSArray* languages = [defs objectForKey:@"AppleLanguages"];
+	NSString* preferredLang = [languages objectAtIndex:0];
+	NSLog(@"language: %@", preferredLang);
+	return preferredLang;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (!apiController) {
 		apiController = [[APIController alloc] init];
 	}
-
+	
     if (indexPath.section == 0) {
-	} else if (indexPath.section == 1) {
-		
-		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
+	} else if (indexPath.section == 1) {		
+		NSString *path = [NSString stringWithFormat:@"%@/api/languages?language=%@", SERVER, [self preferredLanguageCode]];
 		NSLog(@"calling %@", path);
 		NSURL *URL = [NSURL URLWithString:path];
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
@@ -165,14 +173,14 @@ static APIController *apiController = nil;
 								   target:self 
 								 selector:@selector(processLanguageResults:)];		
 	} else if (indexPath.section == 2) {
-		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
+		NSString *path = [NSString stringWithFormat:@"%@/api/languages?language=%@", SERVER, [self preferredLanguageCode]];
 		NSLog(@"calling %@", path);
 		NSURL *URL = [NSURL URLWithString:path];
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
 		[apiController connectWithRequest:request 
 								   target:self 
 								 selector:@selector(processTranslateResults:)];		
-
+		
 	} else if (indexPath.section == 3) {
 	}
 }
