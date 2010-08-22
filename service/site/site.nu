@@ -513,4 +513,4 @@
           (mongo findArray:(dict source_id:(phrase _id:) destination_language:code)
                  inCollection:"telephone.translations"))
      
-     ((dict status:200 translations:translations) JSONRepresentation))
+     ((dict status:200 translations:translations google:translation) JSONRepresentation))
