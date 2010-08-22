@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "PhraseListViewController.h"
+#import "APIController.h"
 
 @interface LanguageListViewController : UITableViewController {
 	PhraseListViewController *phraseListViewController;
 	id languages;
+	APIController *apiController;
 }
 
 @property (nonatomic, retain) PhraseListViewController *phraseListViewController;
 @property (nonatomic, retain) id languages;
+@property (nonatomic, retain) APIController *apiController;
 
 @end

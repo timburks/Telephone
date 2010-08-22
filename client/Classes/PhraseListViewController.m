@@ -12,6 +12,8 @@
 @implementation PhraseListViewController
 
 @synthesize translateViewController;
+@synthesize phrases;
+@synthesize languages;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -65,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 20;
+    return [phrases count];
 }
 
 
@@ -130,16 +132,26 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;	
+
+	int row = [indexPath row];
+	id phrase = [self.phrases objectAtIndex:row];
+	cell.textLabel.text = [phrase objectForKey:@"text"];
+	NSLog(@"phrase %@", phrase);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
 
-	 translateViewController = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
+	translateViewController = [[TranslateViewController alloc] initWithNibName:@"TranslateViewController" bundle:nil];
+	translateViewController.languages = self.languages;
 
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:translateViewController animated:YES];
-	 [translateViewController release];
+	int row = [indexPath row];
+	id phrase = [self.phrases objectAtIndex:row];
+	translateViewController.phrase = phrase;
+
+	// Pass the selected object to the new view controller.
+	[self.navigationController pushViewController:translateViewController animated:YES];
+	[translateViewController release];
 }
 
 
