@@ -1,0 +1,18 @@
+/* 
+   Localizable.strings
+   Telephone
+   Created by iTunes on 8/21/10.
+   Copyright 2010 __MyCompanyName__. All rights reserved.
+ */
+/* RootViewController.m */
+"Sign in" = "登录";
+"Translate a phrase" = "翻译一个短语";
+"Create a phrase" = "创建一个短语";
+"Check a phrase" = "检查一个短语";
+"Select a language" = "选择一种语言";
+/* LanguageListViewController.m */
+"Select a phrase" = "选择一个短语";
+/* TranslateViewController.m */
+"Done" = "完成";
+/* CreatePhraseViewController.m */
+"Phrase created" = "创建词组";

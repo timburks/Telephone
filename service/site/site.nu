@@ -486,7 +486,15 @@
 
 (get "/api/languages"
      (REQUEST setContentType:"application/json")
-     ((dict status:200 languages:languages) JSONRepresentation))
+     (set code ((REQUEST query) language:))
+     (if code
+         (then (set filename (+ "languages-" code ".json"))
+               (set string (NSString stringWithContentsOfFile:filename))
+               (if string
+                   (then (set languages-i8n (string JSONValue))
+                         ((dict status:200 languages:languages-i8n) JSONRepresentation))
+                   (else ((dict status:200 languages:languages) JSONRepresentation))))
+         (else ((dict status:200 languages:languages) JSONRepresentation))))
 
 (get "/api/phrases/code:"
      (REQUEST setContentType:"application/json")

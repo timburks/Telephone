@@ -40,7 +40,7 @@ static APIController *apiController = nil;
 	NSLog(@"phrase %@", phrase);
 	NSLog(@"languages %@", languages);
 	
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done:)]autorelease];
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", "") style:UIBarButtonItemStyleDone target:self action:@selector(done:)]autorelease];
 	
 }
 

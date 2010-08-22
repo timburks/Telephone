@@ -136,28 +136,36 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	if (indexPath.section == 0) {
-		cell.textLabel.text = @"Sign in";
+		cell.textLabel.text = NSLocalizedString(@"Sign in", "");
 	} else if (indexPath.section == 1) {
-		cell.textLabel.text = @"Translate a phrase";
+		cell.textLabel.text = NSLocalizedString(@"Translate a phrase", "");
 	} else if (indexPath.section == 2) {
-		cell.textLabel.text = @"Create a phrase";
+		cell.textLabel.text = NSLocalizedString(@"Create a phrase", "");
 	} else if (indexPath.section == 3) {
-		cell.textLabel.text = @"Check a phrase";
+		cell.textLabel.text = NSLocalizedString(@"Check a phrase", "");
 	}
 	
 }
 
 static APIController *apiController = nil;
 
+- (NSString *) preferredLanguageCode {
+	NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+	NSArray* languages = [defs objectForKey:@"AppleLanguages"];
+	NSString* preferredLang = [languages objectAtIndex:0];
+	NSLog(@"language: %@", preferredLang);
+	return preferredLang;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (!apiController) {
 		apiController = [[APIController alloc] init];
 	}
-
+	
     if (indexPath.section == 0) {
-	} else if (indexPath.section == 1) {
-		
-		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
+	} else if (indexPath.section == 1) {		
+		NSString *path = [NSString stringWithFormat:@"%@/api/languages?language=%@", SERVER, [self preferredLanguageCode]];
 		NSLog(@"calling %@", path);
 		NSURL *URL = [NSURL URLWithString:path];
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
@@ -165,14 +173,14 @@ static APIController *apiController = nil;
 								   target:self 
 								 selector:@selector(processLanguageResults:)];		
 	} else if (indexPath.section == 2) {
-		NSString *path = [NSString stringWithFormat:@"%@/api/languages", SERVER];
+		NSString *path = [NSString stringWithFormat:@"%@/api/languages?language=%@", SERVER, [self preferredLanguageCode]];
 		NSLog(@"calling %@", path);
 		NSURL *URL = [NSURL URLWithString:path];
 		NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];		
 		[apiController connectWithRequest:request 
 								   target:self 
 								 selector:@selector(processTranslateResults:)];		
-
+		
 	} else if (indexPath.section == 3) {
 	}
 }
@@ -188,7 +196,7 @@ static APIController *apiController = nil;
 	
 	languageListViewController = [[LanguageListViewController alloc] init];
 	// Pass the selected object to the new view controller.
-	languageListViewController.title = @"Select a language";
+	languageListViewController.title = NSLocalizedString(@"Select a language", "");
 	languageListViewController.languages = languages;
 	
 	[self.navigationController pushViewController:languageListViewController animated:YES];
@@ -206,7 +214,7 @@ static APIController *apiController = nil;
 	
 	createPhraseViewController = [[CreatePhraseViewController alloc] init];
 	// Pass the selected object to the new view controller.
-	createPhraseViewController.title = @"Create a phrase";
+	createPhraseViewController.title = NSLocalizedString(@"Create a phrase", "");
 	createPhraseViewController.languages = languages;
 	
 	[self.navigationController pushViewController:createPhraseViewController animated:YES];
