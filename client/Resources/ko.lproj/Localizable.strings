@@ -1,0 +1,18 @@
+/* 
+   Localizable.strings
+   Telephone
+   Created by iTunes on 8/21/10.
+   Copyright 2010 __MyCompanyName__. All rights reserved.
+ */
+/* RootViewController.m */
+"Sign in" = "로그인";
+"Translate a phrase" = "번역 구문";
+"Create a phrase" = "만들기 구문";
+"Check a phrase" = "구문을 확인하십시오";
+"Select a language" = "언어 선택";
+/* LanguageListViewController.m */
+"Select a phrase" = "선택 구문";
+/* TranslateViewController.m */
+"Done" = "완료";
+/* CreatePhraseViewController.m */
+"Phrase created" = "문구 작성";

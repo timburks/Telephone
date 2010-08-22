@@ -170,7 +170,7 @@
 	NSArray *phrases = [results objectForKey:@"phrases"];
 	
 	phraseListViewController = [[PhraseListViewController alloc] initWithNibName:@"PhraseListViewController" bundle:nil];
-	phraseListViewController.title = @"Select a phrase";
+	phraseListViewController.title = NSLocalizedString(@"Select a phrase", "");
 	
 	// Pass the phrases in and the list of languages
 	phraseListViewController.phrases = phrases;

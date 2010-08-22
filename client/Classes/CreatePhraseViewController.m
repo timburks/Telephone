@@ -36,7 +36,7 @@ static APIController *apiController = nil;
 	
 	NSLog(@"languages %@", languages);
 	
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done:)]autorelease];
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", "") style:UIBarButtonItemStyleDone target:self action:@selector(done:)]autorelease];
 	
 }
 
@@ -107,7 +107,7 @@ static APIController *apiController = nil;
 - (void)processTranslatePostResults:(NSString *) resultString {
 	NSLog(@"received results %@", resultString);
 	
-	UIAlertView *alert =[[[UIAlertView alloc] initWithTitle:@"Phrase created" message:resultString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] autorelease];
+	UIAlertView *alert =[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Phrase created", "") message:resultString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 	[alert show];
 }
 
