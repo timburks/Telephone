@@ -432,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tim Burks (53Z922U3KK)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -439,6 +440,7 @@
 				GCC_PREFIX_HEADER = Telephone_Prefix.pch;
 				INFOPLIST_FILE = "Telephone-Info.plist";
 				PRODUCT_NAME = Telephone;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC580A0B-61F9-4AC5-8DE6-56AF4F2832F1";
 			};
 			name = Debug;
 		};
@@ -446,11 +448,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tim Burks (53Z922U3KK)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Telephone_Prefix.pch;
 				INFOPLIST_FILE = "Telephone-Info.plist";
 				PRODUCT_NAME = Telephone;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC580A0B-61F9-4AC5-8DE6-56AF4F2832F1";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
