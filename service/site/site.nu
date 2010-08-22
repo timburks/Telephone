@@ -526,11 +526,11 @@
       (set username "iPhone")
       
       (unless phrase
-              (return (dict status:400 message:"unknown phrase")))
+              (return ((dict status:400 message:"unknown phrase") JSONRepresentation)))
       (unless language
-              (return (dict status:400 message:"unknown language")))
-      (unless (eq destination_text "")
-              (return (dict status:400 message:"error: text must not be empty")))
+              (return ((dict status:400 message:"unknown language") JSONRepresentation)))
+      (if (eq destination_text "")
+          (return ((dict status:400 message:"error: text must not be empty" post:(REQUEST post)) JSONRepresentation)))
       
       (set translation ;; do we have an existing translation?
            (mongo findOne:(dict source_id:(phrase _id:)
@@ -541,4 +541,8 @@
       (unless translation
               (set target-text destination_text)
               (set target-entry (get-phrase-entry target-text destination_language))
-              (set translation (get-translation-entry phrase target-entry username))))
+              (set translation (get-translation-entry phrase target-entry username)))
+
+      ((dict status:200 translation:translation) JSONRepresentation))
+
+
