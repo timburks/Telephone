@@ -256,6 +256,7 @@
               (&div id:"main"
                     (&h1 (&a href:(+ "/" code) (language name:)))
                     (&p (phrase text:))
+		    (&h4 (&a href:(+ "/trace/" (phrase _id:)) "Trace this phrase."))
                     (if (translations-from count)
                         (&div (&h2 "Translated from")
                               (&table (translations-from map:
@@ -571,3 +572,64 @@
               (return ((dict status:400 message:"unknown language") JSONRepresentation)))
       (set target-entry (get-phrase-entry ((REQUEST post) text:) code))
       ((dict status:200 phrase:target-entry) JSONRepresentation))
+
+;; PATH TRACING
+
+(function trace (phrase languages level path info)
+     (set translations (mongo findArray:(dict source_id:(phrase _id:)) inCollection:"telephone.translations"))
+     (translations each:
+          (do (translation)
+              (set next (mongo findOne:(dict _id:(translation destination_id:)) inCollection:"telephone.phrases"))
+              (unless (languages containsObject:(translation destination_language:))
+                      (set newlanguages (languages mutableCopy))
+                      (newlanguages addObject:(translation destination_language:))
+                      (set newpath (path mutableCopy))
+                      (newpath addObject:(dict text:(translation destination_text:)
+                                               id:(translation destination_id:)
+                                               language:(translation destination_language:)))
+                      (if (> (newpath count) ((info longestforward:) count))
+                          (info longestforward:newpath))
+                      (trace next newlanguages (+ level 1) newpath info)))))
+
+(function traceback (phrase languages level path info)
+     (set translations (mongo findArray:(dict destination_id:(phrase _id:)) inCollection:"telephone.translations"))
+     (translations each:
+          (do (translation)
+              (set previous (mongo findOne:(dict _id:(translation source_id:)) inCollection:"telephone.phrases"))
+              (unless (languages containsObject:(translation source_language:))
+                      (set newlanguages (languages mutableCopy))
+                      (newlanguages addObject:(translation source_language:))
+                      (set newpath (path mutableCopy))
+                      (newpath insertObject:(dict text:(translation source_text:)
+                                                  id:(translation source_id:)
+                                                  language:(translation source_language:)) atIndex:0)
+                      (if (> (newpath count) ((info longestback:) count))
+                          (info longestback:newpath))
+                      (traceback previous newlanguages (+ level 1) newpath info)))))
+
+(get "/trace/phrase:"
+     (set phrase_id ((REQUEST bindings) phrase:))
+     (set phrase (mongo findOne:(dict _id:(oid phrase_id)) inCollection:"telephone.phrases"))
+     (unless phrase (return nil))
+
+     (set info (dict longestforward:(array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:))) 
+                     longestback:(array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:)))))
+     (trace phrase (NSSet set) 1 (array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:))) info)
+     (traceback phrase (NSSet set) 1 (array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:))) info)
+
+     (webpage "Trace"
+              (&div id:"main"
+		  (&h1 "Tracing phrase")
+		  (&h2 ((languages-by-code (phrase language:)) name:) )
+                  (&p (phrase text:))
+		  (&h2 "Back")
+                  (&table 
+                    ((info longestback:) map:
+                     (do (link) (&tr (&td ((languages-by-code (link language:)) name:)) 
+                                     (&td (&a href:(+ "/" (link language:) "/" (link id:)) (link text:)))))))
+		  (&h2 "Forward")
+                  (&table 
+                    ((info longestforward:) map:
+                     (do (link) (&tr (&td ((languages-by-code (link language:)) name:)) 
+                                     (&td (&a href:(+ "/" (link language:) "/" (link id:)) (link text:))))))))))
+
