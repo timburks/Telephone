@@ -8,7 +8,7 @@
      (set command (+ "curl -s -e " REFERER " '" SERVICE "?" (args urlQueryString) "'"))
      (set response ((NSString stringWithShellCommand:command) JSONValue))
      (if (eq (response responseStatus:) 200)
-         (then ((response responseData:) translatedText:))
+         (then (((response responseData:) translatedText:) stringByDecodingXMLEntities))
          (else nil)))
 
 (function get-phrase-entry (text language)
