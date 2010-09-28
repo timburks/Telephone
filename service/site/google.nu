@@ -5,8 +5,16 @@
      (set args (dict v:"1.0"
                      q:phrase
                      langpair:(+ source "|" destination)))
-     (set command (+ "curl -s -e " REFERER " '" SERVICE "?" (args urlQueryString) "'"))
-     (set response ((NSString stringWithShellCommand:command) JSONValue))
+     ;; The Xmachine sandboxing rules do not allow curl.
+     ;(set command (+ "curl -s -e " REFERER " '" SERVICE "?" (args urlQueryString) "'"))
+     ;(set response ((NSString stringWithShellCommand:command) JSONValue))
+     ;; it would be nice to set the REFERER header, 
+     ;; but I don't see how to do this with the API we use below
+     (set path (+ SERVICE "?" (args urlQueryString)))
+     (set url (NSURL URLWithString:path))
+     (set response ((NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil) JSONValue))
+
+
      (if (eq (response responseStatus:) 200)
          (then (((response responseData:) translatedText:) stringByDecodingXMLEntities))
          (else nil)))
