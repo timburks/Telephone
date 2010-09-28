@@ -1,5 +1,7 @@
 
 (function google-translate (source destination phrase)
+     (NSLog (+ "translating " phrase " from " source " to " destination))
+
      (set REFERER "http://www.radtastical.com")
      (set SERVICE "http://ajax.googleapis.com/ajax/services/language/translate")
      (set args (dict v:"1.0"
@@ -12,8 +14,9 @@
      ;; but I don't see how to do this with the API we use below
      (set path (+ SERVICE "?" (args urlQueryString)))
      (set url (NSURL URLWithString:path))
-     (set response ((NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil) JSONValue))
-
+     (set responseData (NSData dataWithContentsOfURL:url))
+     (set responseString ((NSString alloc) initWithData:responseData encoding:NSUTF8StringEncoding))
+     (set response (responseString JSONValue))
 
      (if (eq (response responseStatus:) 200)
          (then (((response responseData:) translatedText:) stringByDecodingXMLEntities))
