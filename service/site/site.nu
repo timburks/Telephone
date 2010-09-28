@@ -10,7 +10,7 @@
 (mongo connectWithOptions:nil)
 
 (function oid (string)
-     ((NuMongoDBObjectID alloc) initWithString:string))
+     ((NuBSONObjectID alloc) initWithString:string))
 
 ((set date-formatter
       ((NSDateFormatter alloc) init))
@@ -632,4 +632,21 @@
                     ((info longestforward:) map:
                      (do (link) (&tr (&td ((languages-by-code (link language:)) name:)) 
                                      (&td (&a href:(+ "/" (link language:) "/" (link id:)) (link text:))))))))))
+
+
+(get "/api/trace/phrase:"
+     (set phrase_id ((REQUEST bindings) phrase:))
+     (set phrase (mongo findOne:(dict _id:(oid phrase_id)) inCollection:"telephone.phrases"))
+     (unless phrase (return ((dict status:400 message:"unknown phrase") JSONRepresentation)))
+
+     (set info (dict longestforward:(array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:))) 
+                     longestback:(array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:)))))
+     (trace phrase (NSSet set) 1 (array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:))) info)
+     (traceback phrase (NSSet set) 1 (array (dict id:(phrase _id:) text:(phrase text:) language:(phrase language:))) info)
+
+     (set result (dict text:(phrase text:)
+                       back:(info longestback:)
+                       forward:(info longestforward:)))
+
+     ((dict status:200 trace:result) JSONRepresentation))
 

@@ -440,7 +440,7 @@
 				GCC_PREFIX_HEADER = Telephone_Prefix.pch;
 				INFOPLIST_FILE = "Telephone-Info.plist";
 				PRODUCT_NAME = Telephone;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC580A0B-61F9-4AC5-8DE6-56AF4F2832F1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8C5C323-3108-49D9-85EF-F4E8403FB4DA";
 			};
 			name = Debug;
 		};
@@ -454,7 +454,7 @@
 				GCC_PREFIX_HEADER = Telephone_Prefix.pch;
 				INFOPLIST_FILE = "Telephone-Info.plist";
 				PRODUCT_NAME = Telephone;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DC580A0B-61F9-4AC5-8DE6-56AF4F2832F1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8C5C323-3108-49D9-85EF-F4E8403FB4DA";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -463,11 +463,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tim Burks (53Z922U3KK)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8C5C323-3108-49D9-85EF-F4E8403FB4DA";
 				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
@@ -476,12 +477,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tim Burks (53Z922U3KK)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8C5C323-3108-49D9-85EF-F4E8403FB4DA";
 				SDKROOT = iphoneos4.0;
 			};
 			name = Release;

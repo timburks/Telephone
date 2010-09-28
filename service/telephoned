@@ -1,6 +1,6 @@
 #!/usr/local/bin/nush
 #
-# @file nunjad
+# @file telephoned
 # The Nunja daemon.
 #
 # @copyright  Copyright (c) 2008 Neon Design Technology, Inc.
@@ -28,8 +28,6 @@
 
 (set argv ((NSProcessInfo processInfo) arguments))
 (set argi 0)
-
-((((NSProcessInfo processInfo) processIdentifier) stringValue) writeToFile:"nunjad.pid" atomically:NO)
 
 ;; if we're running as a nush script, skip the nush path
 (if (/(.*)nush$/ findInString:(argv 0))
@@ -59,14 +57,16 @@
        (set argi (+ argi 1)))
 
 (set n (Nunja nunja))
+
 (if localOnly
     (then (n bindToAddress:"127.0.0.1" port:port))
     (else (n bindToAddress:"0.0.0.0" port:port)))
 
 (if site
-    (n setDelegate:((NunjaDelegate alloc) initWithSite:site)))
+    ((n delegate) configureSite:site))
+
 (puts (+ "Nunja is running on port " port))
 (set $site site) ;; make the path to the site directory available to handlers
-((n delegate) dump)
+(if (Nunja verbose) ((n delegate) dump))
 (n run)
 
